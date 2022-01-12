@@ -18,14 +18,14 @@ module "vpc" {
   ]
 
   secondary_ranges = {
-    gke-subnet = [
+    demo-subnet = [
       {
         range_name    = "gke-subnet-secondary-01"
-        ip_cidr_range = "192.168.64.0/24"
+        ip_cidr_range = "10.0.10.0/24"
       },
       {
         range_name    = "gke-subnet-secondary-02"
-        ip_cidr_range = "192.168.75.0/24"
+        ip_cidr_range = "10.0.20.0/24"
       }
     ]
 
