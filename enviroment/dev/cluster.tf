@@ -19,8 +19,6 @@ module "gke" {
   node_pools = [
     {
       name            = "pool-01"
-      #min_count       = 1
-      #max_count       = 2
       local_ssd_count            = 0
       disk_size_gb               = 50
       disk_type                  = "pd-standard"
