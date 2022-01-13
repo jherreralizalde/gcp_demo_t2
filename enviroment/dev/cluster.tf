@@ -14,16 +14,16 @@ module "gke" {
   enable_private_endpoint = false
   enable_private_nodes    = true
   master_ipv4_cidr_block  = "172.16.0.0/28"
-  
+
 
   node_pools = [
     {
       name            = "pool-01"
-      local_ssd_count            = 0
-      disk_size_gb               = 50
-      disk_type                  = "pd-standard"
-      image_type                 = "COS"
-      auto_repair                = true
+      local_ssd_count = 0
+      disk_size_gb    = 50
+      disk_type       = "pd-standard"
+      image_type      = "COS"
+      auto_repair     = true
       service_account = "t2-demo@projecto-demo-337817.iam.gserviceaccount.com"
       machine_type    = "n1-standard-1"
       auto_upgrade    = true
