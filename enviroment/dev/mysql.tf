@@ -1,6 +1,6 @@
 resource "google_sql_database" "database" {
-  project  = "projecto-demo-337817"
-  name     = "gcp-training-test"
+  project = "projecto-demo-337817"
+  name    = "gcp-training-test"
   #instance = "cloudsql-instance"
   instance = google_sql_database_instance.master.name
   charset  = "UTF8"
