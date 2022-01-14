@@ -23,6 +23,6 @@ resource "kubernetes_ingress_v1" "example_ingress" {
       }
     }
   }
-  #depends_on = [helm_release.ghost]
+  depends_on = [helm_release.ghost]
 }
 
