@@ -6,11 +6,9 @@ resource "random_string" "password" {
 resource "google_sql_user" "users" {
   project  = "projecto-demo-337817"
   name     = "user-db"
-  host     = "sql-db-demo.com"
+  host = "%"
   instance = google_sql_database_instance.master.name
-  password = sha256(bcrypt(random_string.password.result))
-  lifecycle {
-    ignore_changes = ["password"]
-  }
+  password = random_string.password.result
+
   depends_on = [google_sql_database_instance.master, random_string.password]
 }
