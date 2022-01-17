@@ -15,7 +15,7 @@ resource "kubernetes_cron_job" "demo" {
   spec {
     concurrency_policy            = "Replace"
     failed_jobs_history_limit     = 5
-    schedule                      = "*/5 * * * *"
+    schedule                      = "0 8 * * *"
     starting_deadline_seconds     = 60
     successful_jobs_history_limit = 10
     job_template {
