@@ -6,6 +6,6 @@ Differentt infraestructure will be created for that tast, like network, subnetwo
 
 #Requirements
 
-*Terraform
-*Google SDK
-*Service aaacount with permissions to create the listed infra
+1. Terraform
+2. Google SDK
+3. Service aaacount with permissions to create the listed infra
