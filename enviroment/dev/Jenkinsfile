@@ -15,21 +15,18 @@ pipeline {
     stage('Terraform Init') {
       steps { 
         sh 'terraform -chdir=enviroment/dev init'
-        #sh 'terraform'
       }
     }
       stage('Terraform Plan') {
         steps { 
           sh 'terraform -chdir=enviroment/dev plan -out myplan'
           sh 'ls'
-          #sh 'terraform plan -out myplan'
         }
       }
       stage('Terraform apply') {
         steps {
           sh 'terraform -chdir=enviroment/dev apply -input=false myplan'
           sh 'ls'
-          #sh 'terraform apply -input=false myplan'
         }
       }
      stage('Terraform destroy') {
@@ -40,7 +37,6 @@ pipeline {
           
           sh 'terraform -chdir=enviroment/dev destroy -input=false myplan'
           sh 'ls'
-          #sh 'terraform destroy -input=false myplan'
         }
       } 
     }
