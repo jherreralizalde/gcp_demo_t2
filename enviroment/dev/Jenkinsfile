@@ -20,11 +20,13 @@ pipeline {
     }
       stage('Terraform Plan') {
         steps {
+          sh 'cd enviroment/dev'
           sh 'terraform plan -out myplan'
         }
       }
       stage('Terraform apply') {
         steps {
+          sh 'cd enviroment/dev'
           sh 'terraform apply -input=false myplan'
         }
       }
@@ -33,6 +35,7 @@ pipeline {
                 message "Do you want to apply the change?"
             }
         steps {
+          sh 'cd enviroment/dev'
           sh 'terraform destroy -input=false myplan'
         }
       } 
