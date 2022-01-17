@@ -1,0 +1,39 @@
+pipeline {
+  agent any
+  environment {
+    GOOGLE_APPLICATION_CREDENTIALS = credentials('gcp')
+  }
+  tools {
+    terraform "terraform"
+  }
+  stages {
+    stage('Git Checkout') {
+      steps {
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/jherreralizalde/gcp_demo_t2'
+      }
+    }
+    stage('Terraform Init') {
+      steps {
+        sh 'terraform init'
+      }
+    }
+      stage('Terraform Plan') {
+        steps {
+          sh 'terraform plan -out myplan'
+        }
+      }
+      stage('Terraform apply') {
+        steps {
+          sh 'terraform apply -input=false myplan'
+        }
+      }
+     stage('Terraform destroy') {
+         input {
+                message "Do you want to apply the change?"
+            }
+        steps {
+          sh 'terraform destroy -input=false myplan'
+        }
+      } 
+    }
+  }
