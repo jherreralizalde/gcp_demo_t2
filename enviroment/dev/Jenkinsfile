@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Git Checkout') {
       steps {
-        git branch: 'main', credentialsId: 'github', url: 'https://github.com/jherreralizalde/gcp_demo_t2'
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/jherreralizalde/gcp_demo_t2/enviroment/dev'
       }
     }
     stage('Terraform Init') {
